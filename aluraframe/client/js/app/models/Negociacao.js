@@ -5,7 +5,7 @@ class Negociacao {
     #valor;
 
     constructor(data, quantidade, valor) {
-        this.#data = data;
+        this.#data = new Date(data.getTime());
         this.#quantidade = quantidade;
         this.#valor = valor;
         // O método freeze congela o objeto impedindo sua alteração
@@ -15,7 +15,10 @@ class Negociacao {
     }
 
     get data() {
-        return this.#data;
+        // Abaixo uma programação defensiva, é retornado um novo objeto
+        // que não tem a referência para o atributo do objeto
+        // getTime retorna um número que representa a data
+        return new Date(this.#data.getTime());
     }
 
     get quantidade() {
