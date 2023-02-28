@@ -8,6 +8,10 @@ class Negociacao {
         this.#data = data;
         this.#quantidade = quantidade;
         this.#valor = valor;
+        // O método freeze congela o objeto impedindo sua alteração
+        // É um comando shallow, ou seja, ele ficará na superfície não congela objetos que são atribuidos ao
+        // atributo da classe
+        Object.freeze(this);
     }
 
     get data() {
@@ -22,7 +26,7 @@ class Negociacao {
         return this.#valor
     }
 
-    getVolume() {
+    get volume() {
 
         return this.#quantidade * this.#valor;
     }
