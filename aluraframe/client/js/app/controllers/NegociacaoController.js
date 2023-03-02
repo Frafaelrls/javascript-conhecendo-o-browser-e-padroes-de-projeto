@@ -18,7 +18,9 @@ class NegociacaoController {
     adiciona(event) {
         event.preventDefault();
         
-        console.log(typeof(this.#inputData.value));
-        console.log(this.#inputData.value);
+        // Usando a expressão regular /-/g, onde, será verificado todas(g) as ocorrências 
+        // e serão subsistidas por ','
+        let data = new Date(this.#inputData.value.replace(/-/g, ','));
+        console.log(data);
     };
 };
