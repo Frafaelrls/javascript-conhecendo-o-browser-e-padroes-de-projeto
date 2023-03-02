@@ -1,17 +1,22 @@
 class NegociacaoController {
 
-    adiciona(event) {
-        event.preventDefault();
-        
+    constructor() {
         // O método .bind criar uma função que o seu this tem referência ao atributo fornecido
         // Nes caso, a variável $ mantem a associação ao document
         let $ = document.querySelector.bind(document);
-        let inputData = $('#data');
-        let inputQunatidade = $('#quantidade');
-        let inputValor = $('#valor');
+        
+        this.inputData = $('#data');
+        this.inputQunatidade = $('#quantidade');
+        this.inputValor = $('#valor');
 
-        console.log(inputData.value);
-        console.log(inputQunatidade.value);
-        console.log(inputValor.value);
+    }
+
+    adiciona(event) {
+        event.preventDefault();
+        
+        
+        console.log(this.inputData.value);
+        console.log(this.inputQunatidade.value);
+        console.log(this.inputValor.value);
     };
 };
