@@ -9,14 +9,18 @@ class DateHelper {
     
     static dataParaTexto(data) {
 
-        return data.getDate()
-            + '/' + (data.getMonth() + 1)
-            + '/' + data.getFullYear();
+        // Abaixo é utilizado o template string (semelhante ao f-string do python)
+        return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;           
         
     }
 
     static textoParaData(texto) { 
 
+        // Na espressão regular abaixo, estamos esperando digito numérico (\d) no tamanho n ({n})
+        // Esse tipo de elevação de erro é chamada de fail-fast (falha rápida)
+        if(!/\d{4}-\d{2}-\d{2}/.test(texto)) throw new Error('Deve está no formato: aaaa-mm-dd');
+        
+        
         // Usando a expressão regular /-/g, onde, será verificado todas(g) as ocorrências 
         // e serão subsistidas por ','
         // let data = new Date(this.#inputData.value.replace(/-/g, ','));
