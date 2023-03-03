@@ -1,8 +1,10 @@
 class NegociacaoController {
 
+    // Atributos privados
     #inputData;
     #inputQunatidade;
     #inputValor;
+    #listaNegociacoes;
 
     constructor() {
         // O método .bind criar uma função que o seu this tem referência ao atributo fornecido
@@ -12,20 +14,34 @@ class NegociacaoController {
         this.#inputData = $('#data');
         this.#inputQunatidade = $('#quantidade');
         this.#inputValor = $('#valor');
+        this.#listaNegociacoes = new ListaNegociacoes();
 
     }
 
     adiciona(event) {
         event.preventDefault();
 
-        let negociacao = new Negociacao(
+        this.#listaNegociacoes.adiciona(this.#criaNegociacao());
+        this.#limpaFormulario();
+
+        console.log(this.#listaNegociacoes.negociacoes);
+
+    };
+
+    #criaNegociacao() {
+
+        return new Negociacao(
             DateHelper.textoParaData(this.#inputData.value),
             this.#inputQunatidade.value,
             this.#inputValor.value
         );
+    }
 
-        console.log(negociacao);
+    #limpaFormulario() {
+        this.#inputData.value = '';
+        this.#inputQunatidade.value = 1;
+        this.#inputValor.value = 0.0;
 
-        console.log(DateHelper.dataParaTexto(negociacao.data));
-    };
+        this.#inputData.focus();
+    }
 };
