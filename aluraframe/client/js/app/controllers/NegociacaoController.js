@@ -8,7 +8,7 @@ class NegociacaoController {
         // O método .bind criar uma função que o seu this tem referência ao atributo fornecido
         // Nes caso, a variável $ mantem a associação ao document
         let $ = document.querySelector.bind(document);
-        
+
         this.#inputData = $('#data');
         this.#inputQunatidade = $('#quantidade');
         this.#inputValor = $('#valor');
@@ -17,7 +17,7 @@ class NegociacaoController {
 
     adiciona(event) {
         event.preventDefault();
-        
+
         // Usando a expressão regular /-/g, onde, será verificado todas(g) as ocorrências 
         // e serão subsistidas por ','
         // let data = new Date(this.#inputData.value.replace(/-/g, ','));
@@ -33,8 +33,8 @@ class NegociacaoController {
 
         let data = new Date(
             ...this.#inputData.value
-            .split('-')
-            .map((item, indice) => item - indice % 2)
+                .split('-')
+                .map((item, indice) => item - indice % 2)
         );
         let negociacao = new Negociacao(
             data,
@@ -42,6 +42,10 @@ class NegociacaoController {
             this.#inputValor.value
         );
 
-        console.log(negociacao);
+        let diaMesAno = negociacao.data.getDate()
+            + '/' + (negociacao.data.getMonth() + 1)
+            + '/' + negociacao.data.getFullYear();
+
+        console.log(diaMesAno);
     };
 };
