@@ -1,6 +1,13 @@
 class DateHelper {
     
-    dataParaTexto(data) {
+    constructor(){
+
+        // A declaração throw lança uma exceção definida pelo usuário
+        // Semelhante a cláusula raise do Python
+        throw new Error('Essa classe não pode ser instanciada')
+    }
+    
+    static dataParaTexto(data) {
 
         return data.getDate()
             + '/' + (data.getMonth() + 1)
@@ -8,7 +15,7 @@ class DateHelper {
         
     }
 
-    textoParaData(texto) { 
+    static textoParaData(texto) { 
 
         // Usando a expressão regular /-/g, onde, será verificado todas(g) as ocorrências 
         // e serão subsistidas por ','
