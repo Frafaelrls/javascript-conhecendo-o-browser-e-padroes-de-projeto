@@ -5,6 +5,7 @@ class NegociacaoController {
     #inputQunatidade;
     #inputValor;
     #listaNegociacoes;
+    #negociacoesView;
 
     constructor() {
         // O método .bind criar uma função que o seu this tem referência ao atributo fornecido
@@ -15,6 +16,9 @@ class NegociacaoController {
         this.#inputQunatidade = $('#quantidade');
         this.#inputValor = $('#valor');
         this.#listaNegociacoes = new ListaNegociacoes();
+        this.#negociacoesView = new NegociacoesView($('#negociacoesView'));
+
+        this.#negociacoesView.update();
 
     }
 
