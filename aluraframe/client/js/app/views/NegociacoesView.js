@@ -32,6 +32,17 @@ class NegociacoesView {
             </tbody>
             
             <tfoot>
+            <td colspan='3'></td>
+                <!-- Usando uma Immediately-invoked function expression (IIFE) -->    
+                <!-- Sintaxe: (function(){})() -->    
+                <!-- Essa função é uma função auto-invocada -->    
+                <td>${
+                    (function() {
+                        let total = 0;
+                        model.negociacoes.forEach(negociacao => total += negociacao.volume);
+                        return total;
+                    })()
+                }</td>
             </tfoot>
         </table>
         `;
