@@ -32,10 +32,14 @@ class NegociacoesView {
             </tbody>
             
             <tfoot>
-            <td colspan='3'></td>
-                <!-- Usando uma Immediately-invoked function expression (IIFE) -->    
-                <!-- Sintaxe: (function(){})() -->    
-                <!-- Essa função é uma função auto-invocada -->    
+            <tr>
+            <td colspan='3'>Total usando Immediately-invoked function expression (IIFE):</td>
+
+                <!-- 
+                    Usando uma Immediately-invoked function expression (IIFE)  
+                    Sintaxe: (function(){})()    
+                    Essa função é uma função auto-invocada 
+                 -->    
                 <td>${
                     (function() {
                         let total = 0;
@@ -43,6 +47,23 @@ class NegociacoesView {
                         return total;
                     })()
                 }</td>
+            </tr>
+            <tr>
+                <td colspan='3'>Total usando o paradigma funcional:</td>
+
+                <!-- 
+                    A função reduce() processa o array e retorna um único resultado     
+                    Ela recebe uma função como primeiro parâmetro e o valor inicial como segundo parâmetro  
+                    A função terá os seguintes parâmetros: 
+                        total - Variável que irá acumular o valor a cada interação   
+                        negociacao - Elemento da lista   
+                -->    
+                <td>
+                    ${model.negociacoes.reduce((total, negociacao) => total + negociacao.volume, 0.0)}
+                </td>
+            </tr>
+
+                
             </tfoot>
         </table>
         `;
