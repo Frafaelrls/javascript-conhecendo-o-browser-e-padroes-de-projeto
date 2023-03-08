@@ -19,17 +19,16 @@ class NegociacoesView {
                 </tr>
             </thead>
             <tbody>
-                ${model.negociacoes.map(negociacao => {
-
-                    return `
-                        <tr>
-                            <td>${DateHelper.dataParaTexto(negociacao.data)}</td>
-                            <td>${negociacao.quantidade}</td>
-                            <td>${negociacao.valor}</td>
-                            <td>${negociacao.volume}</td>
-                        </tr>
-                    `
-                }).join('')}
+                ${model.negociacoes.map(negociacao => `
+                    
+                    <tr>
+                        <td>${DateHelper.dataParaTexto(negociacao.data)}</td>
+                        <td>${negociacao.quantidade}</td>
+                        <td>${negociacao.valor}</td>
+                        <td>${negociacao.volume}</td>
+                    </tr>
+                    
+                    `).join('')}
             </tbody>
             
             <tfoot>
