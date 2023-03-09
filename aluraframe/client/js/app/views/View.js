@@ -7,6 +7,11 @@ class View {
         this.#elemento = elemento;
     }
 
+    template() {
+
+        throw 'O método template deve ser implementado.'
+    }
+
     
     update(model) {
 
