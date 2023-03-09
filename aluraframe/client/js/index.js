@@ -9,7 +9,7 @@ var tbody = document.querySelector('table tbody');
 document.querySelector('.form').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // criando uma linha
+    // Criando uma linha
     var tr = document.createElement('tr');
 
     campos.forEach(function (campo) {
@@ -34,7 +34,7 @@ document.querySelector('.form').addEventListener('submit', function (event) {
     campos[1].value = 1;
     campos[2].value = 0;
 
-    // método focus, quando a página é carregada este campo será selecionado automaticamente
+    // Método focus, quando a página é carregada este campo será selecionado automaticamente
     campos[0].focus();   
 
 });

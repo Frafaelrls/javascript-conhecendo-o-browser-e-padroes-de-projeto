@@ -10,8 +10,10 @@ class NegociacaoController {
     #mensagemView;
 
     constructor() {
-        // O método .bind criar uma função que o seu this tem referência ao atributo fornecido
-        // Nes caso, a variável $ mantem a associação ao document
+        /* 
+            O método .bind criar uma função que o seu this tem referência ao atributo fornecido
+            Nes caso, a variável $ mantem a associação ao document
+        */
         let $ = document.querySelector.bind(document);
 
         this.#inputData = $('#data');
