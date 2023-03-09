@@ -1,5 +1,5 @@
 class MensagemView {
-    
+
     #elemento;
 
     constructor(elemento) {
@@ -7,7 +7,7 @@ class MensagemView {
     }
 
     #template(model) {
-        
+
         /* 
             If ternário. Verifica se a expresão a esquerda da interrogação (?) é verdadeira, caso seja
             o primeiro código a direita da interrogação (?) será executado, caso não seja, o código a 
@@ -16,8 +16,10 @@ class MensagemView {
         return model.texto ? `<p class='alert alert-info'>${model.texto}</p>` : '<p></p>';
     }
 
-    update(model) { 
-        
+    update(model) {
+
         this.#elemento.innerHTML = this.#template(model);
+        // Remove a exibição da mensagem após 3 segundos
+        model ? setTimeout(() => this.#elemento.innerHTML = `<p></p>`, 3000) : null;
     }
 }
