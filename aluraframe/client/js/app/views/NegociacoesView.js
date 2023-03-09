@@ -1,13 +1,11 @@
-class NegociacoesView {
-
-    #elemento;
+// Herança de classe
+class NegociacoesView extends View {
 
     constructor(elemento) {
-
-        this.#elemento = elemento
+        super(elemento);
     }
 
-    #template(model) {
+    template(model) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -69,7 +67,4 @@ class NegociacoesView {
         `;
     }
 
-    update(model) {
-        this.#elemento.innerHTML = this.#template(model);
-    }
 }

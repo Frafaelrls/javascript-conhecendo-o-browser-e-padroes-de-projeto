@@ -1,12 +1,11 @@
-class MensagemView {
-
-    #elemento;
+// Herança de classe
+class MensagemView extends View {
 
     constructor(elemento) {
-        this.#elemento = elemento;
+        super(elemento);
     }
 
-    #template(model) {
+    template(model) {
 
         /* 
             If ternário. Verifica se a expresão a esquerda da interrogação (?) é verdadeira, caso seja
@@ -16,10 +15,4 @@ class MensagemView {
         return model.texto ? `<p class='alert alert-info'>${model.texto}</p>` : '<p></p>';
     }
 
-    update(model) {
-
-        this.#elemento.innerHTML = this.#template(model);
-        // Remove a exibição da mensagem após 3 segundos
-        model ? setTimeout(() => this.#elemento.innerHTML = `<p></p>`, 3000) : null;
-    }
 }
